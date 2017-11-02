@@ -30,7 +30,7 @@
           @include('header')
       </header>
       <section>
-          <div class="container">
+          <div class="container {{ $contentClass OR '' }}">
               <div class="row">
                   @yield('content')
               </div>

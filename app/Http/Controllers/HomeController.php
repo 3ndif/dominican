@@ -13,4 +13,8 @@ class HomeController extends Controller
     public function index(){
         return view('pages.main.index');
     }
+
+    public function catalog(){
+        return view('pages.ads.catalog');
+    }
 }

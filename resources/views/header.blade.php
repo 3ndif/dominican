@@ -52,6 +52,7 @@
         <img src="images/slide1.png" alt="">
       </div>
     </div>
+    
   </div>
 </div>
 
