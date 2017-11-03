@@ -13,3 +13,8 @@
 
 Route::get('/','HomeController@index');
 Route::get('catalog','HomeController@catalog');
+//Auth::routes();
+
+Route::post('/register', 'Auth\RegisterController@register');
+Route::post('/register-complete', 'Auth\RegisterController@registerComplete');
+Route::get('/home', 'HomeController@index')->name('home');
