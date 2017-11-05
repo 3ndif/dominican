@@ -1,32 +1,30 @@
-Message = new function(){
+RegisterForm = new function(){
+    this.container = '#register-form';
+    this.passwordContainer = '#myModalPassword';
 
     this.clear = function(){
-        $('form').find('.help-block').remove();
+        $(this.container).find('.help-block').remove();
         $('.form-group').removeClass('has-error');
     }
 }
 
-$.ajaxSetup({
-    headers: { 'X-CSRF-Token' : $('meta[name=csrf-token]').attr('content') }
-});
 
 $(document).ready(function(){
 
-    $('.senddata-form').on('submit',function(e){
+    $(RegisterForm.container).on('submit',function(e){
         e.preventDefault();
 
         var $this = $(this),
             link = $this.attr('data-link'),
-            form_container = $this.closest('form'),
+            container = RegisterForm.container,
+            passwordContainer = RegisterForm.passwordContainer,
 
-            form = $(form_container)[0],
+            form = $(container)[0],
             form_data = new FormData(form);
 
-            if (($("#myModalPassword").data('bs.modal') || {}).isShown){
-                var password = $("#myModalPassword").find(':input[name="password"]').val()
+            if (($(passwordContainer).data('bs.modal') || {}).isShown){
+                var password = $(passwordContainer).find(':input[name="password"]').val()
                 form_data.append('password', password);
-
-                link = 'register-complete';
             }
 
         $.ajax({
@@ -39,27 +37,33 @@ $(document).ready(function(){
             cache: false,
 //            timeout: 600000,
             success: function (data) {
-                Message.clear()
-                $('#myModalPassword').modal()
+                data.map(function (elem) {
+                    try {
+                        Handler.handleMessage(elem);
+                    } catch (e) {
+                        console.log('error in handling message', e);
+                    }
+                });
             },
             error: function (e) {
                 if (e.status != 422) return
 
                 var response = e.responseJSON,
                     errors = response.errors;
+                    console.log(errors)
 
+                RegisterForm.clear()
                 Object.keys(errors).map(function(attribute, index) {
 
                     var
-                        msgError = errors[attribute][0],
-                        container = form_container;
+                        msgError = errors[attribute][0];
 
                     if (attribute == 'password'){
-                        container = $('#myModalPassword')
+                        container = $(passwordContainer)
                     }
 
                     var
-                        input = container.find(':input[name="'+attribute+'"]'),
+                        input = $(container).find(':input[name="'+attribute+'"]'),
                         parentDivGroup = input.closest('.form-group');
 
                     parentDivGroup.find('.help-block').remove();
@@ -74,6 +78,6 @@ $(document).ready(function(){
     })
 
     $('.senddata-password').on('click',function(){
-        $( ".senddata-form" ).trigger("submit");
+        $( RegisterForm.container ).trigger("submit");
     })
 })

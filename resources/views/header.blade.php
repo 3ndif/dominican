@@ -1,3 +1,5 @@
+@include('auth.login')
+
 <div class="container">
 <div class="row">
     <div class="top-header">
@@ -11,7 +13,17 @@
          </tr>
        </table>
      </a>
-      <div class="col-md-2 col-md-push-6 col-sm-5 col-xs-5"><button class="log-in"><i class="fa fa-sign-in" aria-hidden="true"></i>Войти</button></div>
+     @if (Auth::check())
+        <div class="col-md-2 col-md-push-6 col-sm-5 col-xs-5">
+            <button class="log-in" id="log-out"><i class="fa fa-sign-in" aria-hidden="true"></i>Выйти</button>
+        </div>
+     @else
+        <div class="col-md-2 col-md-push-6 col-sm-5 col-xs-5">
+            <button class="log-in" id="log-in" data-toggle="modal" data-target="#login-modal">
+                <i class="fa fa-sign-in" aria-hidden="true"></i>Войти
+            </button>
+        </div>
+     @endif
      <div class="col-md-3 col-md-pull-2 col-sm-6 col-xs-6"><button class="ok-sign" type="button"  data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-check-circle-o" aria-hidden="true"></i> Подписаться на акции</button></div>
      <div class="col-md-3 col-md-pull-2 col-sm-6 col-xs-6"><button class="bullhorn"><i class="fa fa-bullhorn" aria-hidden="true"></i>Подать обьявление</button></div>
 
@@ -52,7 +64,7 @@
         <img src="images/slide1.png" alt="">
       </div>
     </div>
-    
+
   </div>
 </div>
 

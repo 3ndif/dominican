@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
+
+use App\Models\JsonHandler;
 
 class RegisterController extends Controller
 {
@@ -22,7 +25,7 @@ class RegisterController extends Controller
     |
     */
 
-//    use RegistersUsers;
+    use RegistersUsers;
 
     /**
      * Where to redirect users after registration.
@@ -41,19 +44,45 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function register(Request $request){
-
-        $this->validatorStepFirst($request->all());
-
-        return;
-    }
 
     /**
-     * Окончательная регистрация после ввода пароля
+     * Двухступенчатая регистрация
      */
-    public function registerComplete(Request $request){
-        $this->validatorStepFirst($request->all());
-        $this->validatorPassword($request->all());
+    public function register(Request $request){
+
+        $this->validator($request->all())->validate();
+
+        if ($request->exists('password')){
+
+            $this->validatePassword($request->all())->validate();
+
+            event(new Registered($user = $this->create($request->all())));
+
+            $this->guard()->login($user);
+
+            return JsonHandler::response([
+                JsonHandler::REFRESH_PAGE => ''
+            ]);
+
+        }
+
+        return JsonHandler::response([
+            JsonHandler::SHOW_MODAL_PASSWORD => '',
+        ]);
+    }
+
+    public function validator(array $data){
+        return Validator::make($data, [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'phone' => 'required|string|max:50',
+        ],$this->messages());
+    }
+
+    public function validatePassword(array $data){
+        return Validator::make($data, [
+            'password' => 'required|string|max:255',
+        ],$this->messages());
     }
 
     public function messages()
@@ -69,37 +98,8 @@ class RegisterController extends Controller
             'phone.required' => 'Необходимо указать Телефон',
             'password.required' => 'Необходимо указать Пароль',
 
-            'email.uniq' => 'Данный email уже зарегистрирован'
+            'email.unique' => 'Данный email уже зарегистрирован'
         ];
-    }
-
-    public function validatorStepFirst(array $data){
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'phone' => 'required|string|max:50',
-        ],$this->messages())->validate();
-    }
-
-    public function validatorPassword(array $data){
-        return Validator::make($data, [
-            'password' => 'required|string|max:255',
-        ],$this->messages())->validate();
-    }
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ])->validate();
     }
 
     /**
@@ -114,6 +114,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'phone' => $data['phone']
         ]);
     }
 }

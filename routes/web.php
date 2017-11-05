@@ -15,6 +15,16 @@ Route::get('/','HomeController@index');
 Route::get('catalog','HomeController@catalog');
 //Auth::routes();
 
+Route::get('/logout','Auth\LoginController@logout');
+
 Route::post('/register', 'Auth\RegisterController@register');
-Route::post('/register-complete', 'Auth\RegisterController@registerComplete');
+Route::post('/login', 'Auth\LoginController@login');
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('user{user}','UserController@profile');
+
+Route::group(['middleware' => 'auth'], function(){
+
+    Route::get('my','UserController@myProfile');
+});
