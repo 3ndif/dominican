@@ -59,6 +59,10 @@ class LoginController extends Controller
         return $this->sendFailedLoginResponse($request);
     }
 
+    public function getLogin(){
+        return view('pages.main.index');
+    }
+
     protected function sendLoginResponse(Request $request)
     {
         $request->session()->regenerate();

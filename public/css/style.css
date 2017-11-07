@@ -562,6 +562,7 @@ aside nav ul li a{
 	border-bottom: 20px solid transparent;
 	border-left: 14px solid #e54312;
 	right: -14px;
+        top: 0;
 	display: inline-block;
 }
 .aside-banner{

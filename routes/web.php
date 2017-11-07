@@ -11,23 +11,26 @@
 |
 */
 
-Route::get('/','HomeController@index');
+/*-- Каталог --*/
+Route::get('/','CatalogController@index');
 Route::get('catalog/{category}','CatalogController@catalog')
         ->where('category','^[a-zA-Z0-9-_\/]+$');
-//Auth::routes();
+/*-- end -- */
 
-Route::get('/logout','Auth\LoginController@logout');
+
+/*-- Авторизация Регистрация --*/
 
 Route::post('/register', 'Auth\RegisterController@register');
 Route::post('/login', 'Auth\LoginController@login');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout','Auth\LoginController@logout');
+
+Route::get('/login','Auth\LoginController@getLogin')->name('login');
+//Route::get('/home', 'HomeController@index')->name('home');
+
+/*-- end --*/
 
 
-Route::get('user{user}','UserController@profile');
-
-Route::group(['middleware' => 'auth'], function(){
-
-    Route::get('my','UserController@myProfile');
-
-    Route::get('avto','HomeController@index');
+Route::group(['namespace' => 'User'],function(){
+    Route::get('user{user}','ProfileController@profile');
+    Route::get('my','ProfileController@myProfile')->middleware('auth');
 });

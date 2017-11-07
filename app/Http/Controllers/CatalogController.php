@@ -9,6 +9,7 @@ use App\Category;
 
 class CatalogController extends Controller
 {
+
     public function catalog($categories){
 
         $categories = explode('/', $categories);
@@ -23,8 +24,10 @@ class CatalogController extends Controller
                     ->where('parent.url',$categories[0]);
         }
 
-        $category = $category->firstOrFail();
+        $catalog = $category->firstOrFail();
 
-        return view('pages.main.index');
+        return view('pages.catalog.list')
+                ->withCatalog($catalog)
+                ->withTopCatalog($catalog->getTopCatalog());
     }
 }

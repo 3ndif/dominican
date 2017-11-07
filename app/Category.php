@@ -20,10 +20,22 @@ class Category extends Model
         return $this->belongsTo(self::class,'parent_id');
     }
 
+    public function hasParent(){
+        return !is_null($this->parent_id);
+    }
+
     /**
      * Получить основные категории
      */
     public static function getMain(){
         return Category::with('children')->whereNull('parent_id')->get();
+    }
+
+    public function getTopCatalog(){
+        if (!$this->hasParent()){
+            return $this;
+        }
+
+        return $this->parentCategory;
     }
 }

@@ -1,6 +1,6 @@
 @section('lease-3')
 <div class="col-md-4">
-    <img src="images/catalog-offers.png" alt="">
+    <img src="/images/catalog-offers.png" alt="">
     <a href="#"><h4>Д. Коттедж в стиле ХАЙ-ТЕК</h4></a>
     <div class="company-name">
         <span>Название компании</span>
