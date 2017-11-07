@@ -12,7 +12,8 @@
 */
 
 Route::get('/','HomeController@index');
-Route::get('catalog','HomeController@catalog');
+Route::get('catalog/{category}','CatalogController@catalog')
+        ->where('category','^[a-zA-Z0-9-_\/]+$');
 //Auth::routes();
 
 Route::get('/logout','Auth\LoginController@logout');
@@ -27,4 +28,6 @@ Route::get('user{user}','UserController@profile');
 Route::group(['middleware' => 'auth'], function(){
 
     Route::get('my','UserController@myProfile');
+
+    Route::get('avto','HomeController@index');
 });

@@ -11,8 +11,8 @@
         <!--<link href="{{ asset('css/app.css') }}" rel="stylesheet">-->
         <!-- Bootstrap -->
         <link rel="shortcut icon" href="/images/logo-img.png" type="image/png"/>
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
         <link href="/css/font-awesome.min.css" rel="stylesheet">
         <link href="/css/jquery.formstyler.css" rel="stylesheet">
         <link href="/css/jquery.formstyler.theme.css" rel="stylesheet">
@@ -43,12 +43,12 @@
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script type="text/javascript" src="js/jquery.formstyler.min.js"></script>
-        <script type="text/javascript" src="js/form.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/handler.js"></script>
-        <script type="text/javascript" src="js/core.js"></script>
-        <script type="text/javascript" src="js/login.js"></script>
-        <script type="text/javascript" src="js/register.js"></script>
+        <script type="text/javascript" src="/js/jquery.formstyler.min.js"></script>
+        <script type="text/javascript" src="/js/form.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/handler.js"></script>
+        <script type="text/javascript" src="/js/core.js"></script>
+        <script type="text/javascript" src="/js/login.js"></script>
+        <script type="text/javascript" src="/js/register.js"></script>
     </body>
 </html>

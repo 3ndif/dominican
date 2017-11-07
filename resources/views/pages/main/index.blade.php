@@ -14,7 +14,7 @@
     </div>
     <div class="offer-cart clear">
         <div class="col-md-3">
-          <img src="images/Offer-week.png" alt="">
+          <img src="/images/Offer-week.png" alt="">
         </div>
         <div class="col-md-9">
             <h4>Пляжный отдых с бесплатными водными развлечениями</h4>
@@ -60,7 +60,7 @@
      </div><!--offer-cart-->
      <div class="offer-cart clear">
         <div class="col-md-3">
-            <img src="images/Offer-week.png" alt="">
+            <img src="/images/Offer-week.png" alt="">
         </div>
         <div class="col-md-9">
             <h4>Пляжный отдых с бесплатными водными развлечениями</h4>
@@ -106,7 +106,7 @@
     </div><!--offer-cart-->
     <div class="offer-cart clear">
         <div class="col-md-3">
-             <img src="images/Offer-week.png" alt="">
+             <img src="/images/Offer-week.png" alt="">
         </div>
         <div class="col-md-9">
             <h4>Пляжный отдых с бесплатными водными развлечениями</h4>
@@ -157,7 +157,7 @@
 @yield('search-block')
 
 <div class="index-banner">
-  <img src="images/index-banner.png" alt="">
+  <img src="/images/index-banner.png" alt="">
 </div>
 
 @yield('opinion-block')

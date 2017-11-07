@@ -1,5 +1,7 @@
 @extends('layouts.main',['contentclass' => 'personal-area'])
 
+@include('pages.ads.lease-3')
+
 @section('content')
 
 @include('pages.user.navbar')
@@ -17,37 +19,7 @@
             <img src="images/personal-area.png" alt="">
         </div>
         <div class="col-md-8">
-            <table class="col-md-12 clear">
-                <tr>
-                    <td>Имя:</td>
-                    <td>Conor</td>
-                </tr>
-                <tr>
-                    <td>Фамилия:</td>
-                    <td>McGregor</td>
-                </tr>
-                <tr>
-                    <td>Пол:</td>
-                    <td>мужской</td>
-                </tr>
-                <tr>
-                    <td>День рождения:</td>
-                    <td>11 Января 1982</td>
-                </tr>
-                <tr>
-                    <td>E-mail:</td>
-                    <td>mcgregor@gmail.com</td>
-                </tr>
-                <tr>
-                    <td>Тел:</td>
-                    <td>+38 (099) 54 87 643</td>
-                </tr>
-                <tr>
-                    <td>Skype:</td>
-                    <td>mcgregor</td>
-                </tr>
-
-            </table>
+            @include('pages.user.personal_info')
             <span class="counter clear">128 дней с Dominican Life style</span>
             <div class="submit-advertisement col-md-6"><a href="#"><i class="fa fa-bullhorn" aria-hidden="true"></i>Подать обьявление</a></div>
             <div class="advertising-site col-md-6"><a href="#"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i>реклама на сайте</a></div>

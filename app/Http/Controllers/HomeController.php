@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 
 class HomeController extends Controller
 {
@@ -23,7 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.main.index');
+        $categories = Category::with('children')->whereNull('parent_id')->get();
+
+        return view('pages.main.index')->withCategories($categories);
     }
 
     public function catalog(){

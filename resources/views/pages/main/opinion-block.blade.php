@@ -17,7 +17,16 @@
       <div class="carousel-caption">
       <span class="opinion-name">Александр Иванов,</span><span class="opinion-compani">Название компании или что то еще</span>
       <div class="opinion-img clear">
-        <img src="images/opinion.png" alt="">
+        <img src="/images/opinion.png" alt="">
+      </div>
+      <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях.</p>
+      </div>
+    </div>
+     <div class="item">
+      <div class="carousel-caption">
+      <span class="opinion-name">Александр Иванов,</span><span class="opinion-compani">Название компании или что то еще</span>
+      <div class="opinion-img clear">
+        <img src="/images/opinion.png" alt="">
       </div>
       <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях.</p>
       </div>
@@ -35,16 +44,7 @@
       <div class="carousel-caption">
       <span class="opinion-name">Александр Иванов,</span><span class="opinion-compani">Название компании или что то еще</span>
       <div class="opinion-img clear">
-        <img src="images/opinion.png" alt="">
-      </div>
-      <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях.</p>
-      </div>
-    </div>
-     <div class="item">
-      <div class="carousel-caption">
-      <span class="opinion-name">Александр Иванов,</span><span class="opinion-compani">Название компании или что то еще</span>
-      <div class="opinion-img clear">
-        <img src="images/opinion.png" alt="">
+        <img src="/images/opinion.png" alt="">
       </div>
       <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях.</p>
       </div>
