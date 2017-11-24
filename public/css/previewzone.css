@@ -1,0 +1,76 @@
+#file-uploader{ 
+    width:100%; 
+    white-space:nowrap; 
+    overflow-x: auto; 
+    border: 1px solid #b3b3b3;
+    margin-bottom: 20px;
+}
+
+#file-uploader .pic{ 
+    width:120px; 
+    height:120px; 
+    text-align:center; 
+    border:1px solid #000; 
+    border-radius: 5px; 
+    margin:8px; 
+    display: inline-block; 
+    vertical-align:top; 
+    position:relative; 
+    overflow:hidden;
+}
+
+#file-uploader .pic img { 
+    width:120px; 
+    height:120px; 
+    text-align:center;
+}
+
+#file-uploader .pic .remove{
+    cursor: pointer; 
+    position:absolute;
+    top:0; 
+    right: 0; 
+    width:20px; 
+    height:20px; 
+    background: #eee; 
+    z-index:1030; 
+}
+
+#file-uploader .pic-list{ overflow-x: scroll; overflow-y: hidden;}
+#file-uploader .addfile{cursor: pointer; border: 2px dashed #32A336; border-radius: 5px; display: inline-block; width:120px; height:120px; text-align:center;  margin:8px; line-height:105px;}
+#file-uploader .add-file { position: relative; overflow: hidden;  height: 48px; font-size:2em; }
+#file-uploader .add-file input[type="file"]{ height: 20px; position: absolute; top: 0; right: 0; bottom:5px; margin: 0 auto; opacity: 0; cursor: pointer; width: 100%;}
+
+.dz-remove
+{
+    display:inline-block !important;
+    width:1.2em;
+    height:1.2em;
+    
+    position:absolute;
+    top:5px;
+    right:5px;
+    z-index:1000;
+    
+    font-size:1.2em !important;
+    line-height:1em;
+   
+    text-align:center;
+    font-weight:bold;
+    border:1px solid gray !important;
+    border-radius:1.2em;
+    color:gray;
+    background-color:white;
+    opacity:.5;
+    
+}
+
+.dz-remove:hover
+{
+    text-decoration:none !important;
+    opacity:1;
+}
+
+.dropzone .dz-preview .dz-image {
+     border-radius: 0px; 
+}

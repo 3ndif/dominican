@@ -25,7 +25,9 @@
             </div>
             @endif
             <div class="col-md-3 col-md-pull-2 col-sm-6 col-xs-6"><button class="ok-sign" type="button"  data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-check-circle-o" aria-hidden="true"></i> Подписаться на акции</button></div>
-            <div class="col-md-3 col-md-pull-2 col-sm-6 col-xs-6"><button class="bullhorn"><i class="fa fa-bullhorn" aria-hidden="true"></i>Подать обьявление</button></div>
+            <div class="col-md-3 col-md-pull-2 col-sm-6 col-xs-6">
+                <a href="{{ url("new-ads") }}"><button class="bullhorn"><i class="fa fa-bullhorn" aria-hidden="true"></i>Подать обьявление</button></a>
+            </div>
 
         </div><!--top-header-->
         <div class="slider">

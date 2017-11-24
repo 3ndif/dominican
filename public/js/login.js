@@ -20,7 +20,7 @@ $(LoginForm.container).on('submit',function(e){
         form = $(container)[0],
         form_data = new FormData(form);
 
-
+        console.log(form_data)
     $.ajax({
         type: "POST",
         enctype: 'multipart/form-data',

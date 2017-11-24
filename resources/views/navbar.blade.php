@@ -5,18 +5,30 @@ use App\Category;
     <ul class="nav navbar-nav">
         @foreach (Category::getMain() as $category)
             @if ($category->children->count() === 0)
-                <li class="{{ (Request::segment(1) === $category->url) ? 'active' : ''}}">
-                    <a href="{{ url("/catalog/{$category->url}") }}">{{ $category->name }}</a>
+                <li class="{{ (Request::segment(1) === $category->slug) ? 'active' : ''}}">
+                    <a href="{{ route("catalog",[
+                        'slug1' => $category->slug
+                    ]) }}">{{ $category->name }}</a>
                 </li>
             @else
 
                 <li class="dropdown">
-                    <a href="{{ url("/catalog/{$category->url}") }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <a href="{{ route("catalog",[
+                        'slug1' => $category->slug
+                    ]) }}"
+                       class="dropdown-toggle disabled"
+                       data-toggle="dropdown"
+                       role="button"
+                       aria-haspopup="true"
+                       aria-expanded="false">
                         {{ $category->name }}
                     </a>
                     <ul class="dropdown-menu">
                         @foreach($category->children as $subCategory)
-                        <li><a href="{{ url("/catalog/{$category->url}/{$subCategory->url}") }}">
+                        <li><a href="{{ route("catalog",[
+                            'slug1' => $category->slug,
+                            'slug2' => $subCategory->slug
+                        ]) }}">
                                 {{ $subCategory->name }}</a>
                         </li>
                         @endforeach

@@ -1195,7 +1195,7 @@ text-decoration:underline;
 }
 .flex-control-thumbs img {
 	width: 100%;
-	height: auto;
+	height: 100%;
 	display: block;
 	opacity: 1;
 	cursor: pointer;
@@ -1207,7 +1207,9 @@ text-decoration:underline;
 	transition: all 1s ease;
 }
 .flex-control-thumbs li {
-    width: 31%;
+    /*width: 31%;*/
+    width: 75px;
+    height: 55px;
     float: left;
     margin: 6px 5px 0 auto;
 }

@@ -24,3 +24,7 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+<script type="text/javascript" src="js/login.js"></script>
+@endpush

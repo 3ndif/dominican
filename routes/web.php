@@ -12,9 +12,7 @@
 */
 
 /*-- Каталог --*/
-Route::get('/','CatalogController@index');
-Route::get('catalog/{category}','CatalogController@catalog')
-        ->where('category','^[a-zA-Z0-9-_\/]+$');
+Route::get('/','HomeController@index');
 /*-- end -- */
 
 
@@ -34,3 +32,16 @@ Route::group(['namespace' => 'User'],function(){
     Route::get('user{user}','ProfileController@profile');
     Route::get('my','ProfileController@myProfile')->middleware('auth');
 });
+
+
+/*-- ADS --*/
+
+Route::get('/new-ads', 'AdsController@viewCreate');
+
+Route::post('/upload','TestController@uploadImg');
+
+Route::get('catalog/{slug1}/{slug2?}','CatalogController@catalog')->name('catalog');
+
+Route::get('{adsUrl}','AdsController@single')
+        ->where('adsUrl', '(.*)')
+        ->name('single');

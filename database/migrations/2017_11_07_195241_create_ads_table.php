@@ -19,6 +19,7 @@ class CreateAdsTable extends Migration
             $table->integer('users_id')->unsigned();
             $table->string('title');
             $table->text('text');
+            $table->string('title');
             $table->timestamps();
         });
 
@@ -36,7 +37,7 @@ class CreateAdsTable extends Migration
      */
     public function down()
     {
-        Schema::table('categories', function(Blueprint $table)
+        Schema::table('ads', function(Blueprint $table)
         {
             $table->dropForeign('ads_categories_id_foreign');
             $table->dropForeign('ads_users_id_foreign');

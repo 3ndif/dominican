@@ -68,4 +68,8 @@
     </div><!-- Modal -->
 </div>
 
+@push('scripts')
+<script type="text/javascript" src="js/register.js"></script>
+@endpush
+
 @endsection

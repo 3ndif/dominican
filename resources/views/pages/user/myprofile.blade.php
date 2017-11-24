@@ -1,6 +1,6 @@
 @extends('layouts.main',['contentclass' => 'personal-area'])
 
-@include('pages.ads.lease-3')
+@include('pages.catalog.lease-3')
 
 @section('content')
 

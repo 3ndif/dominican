@@ -26,6 +26,8 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+
+        Route::model('adsUrl', \App\AdsUrl::class);
     }
 
     /**
