@@ -1,7 +1,7 @@
 <?php
 return [
-    'email'                 => 'Некорректный :attribute адрес.',
-    'required'              => 'Поле :attribute не должно быть пустым.',
+    'email'                 => 'Некорректный <strong>:attribute</strong> адрес.',
+    'required'              => 'Поле <strong>:attribute</strong> не должно быть пустым.',
 
     'attributes' => [
         'email' => 'Email',
